@@ -1,8 +1,7 @@
-import {Entity, model, property, belongsTo} from '@loopback/repository';
-import {Inmueble} from './inmueble.model';
+import {Entity, model, property} from '@loopback/repository';
 
 @model()
-export class Empleado extends Entity {
+export class Codeudor extends Entity {
   @property({
     type: 'string',
     id: true,
@@ -38,30 +37,16 @@ export class Empleado extends Entity {
     type: 'string',
     required: true,
   })
-  Direccion: string;
+  CartaLaboral: string;
 
-  @property({
-    type: 'date',
-    required: true,
-  })
-  FechaNacimiento: string;
 
-  @property({
-    type: 'string',
-    required: true,
-  })
-  Rol: string;
-
-  @belongsTo(() => Inmueble)
-  inmuebleId: string;
-
-  constructor(data?: Partial<Empleado>) {
+  constructor(data?: Partial<Codeudor>) {
     super(data);
   }
 }
 
-export interface EmpleadoRelations {
+export interface CodeudorRelations {
   // describe navigational properties here
 }
 
-export type EmpleadoWithRelations = Empleado & EmpleadoRelations;
+export type CodeudorWithRelations = Codeudor & CodeudorRelations;
