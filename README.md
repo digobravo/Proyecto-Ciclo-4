@@ -1,75 +1,82 @@
-# proinmobiliariastackers
+### Desarrollo Web Ciclo 4 Grupo 18
+# Stackers 18 ★★★
 
-This application is generated using [LoopBack 4 CLI](https://loopback.io/doc/en/lb4/Command-line-interface.html) with the
-[initial project layout](https://loopback.io/doc/en/lb4/Loopback-application-layout.html).
+Integrantes del Equipo:
+* David Fernando Prieto
+* Diego Bravo Arias
+* Darwing David Mosquera
 
-## Install dependencies
+# Proyecto Inmobiliaria
 
-By default, dependencies were installed when this application was generated.
-Whenever dependencies in `package.json` are changed, run the following command:
+Esta aplicación ha sido creada usando [LoopBack 4 CLI](https://loopback.io/doc/en/lb4/Command-line-interface.html) con la siguente
+[maquetación inicial de proyecto](https://loopback.io/doc/en/lb4/Loopback-application-layout.html).
+
+## Instalar dependencias
+
+Por defecto, ciertas dependencias fueron instaladas cuando se generó la aplicación.
+Siempre que se modifiquen esas dependencias en el archivo `package.json`, ejecute el siguiente comando:
 
 ```sh
 npm install
 ```
 
-To only install resolved dependencies in `package-lock.json`:
+Para instalar solamente las dependancias resueltas en `package-lock.json`:
 
 ```sh
 npm ci
 ```
 
-## Run the application
+## ejecutar la aplicación
 
 ```sh
 npm start
 ```
 
-You can also run `node .` to skip the build step.
+Puede ejecutar tambien `node .` para omitir el paso de compilar.
 
-Open http://127.0.0.1:3000 in your browser.
+Abra http://127.0.0.1:3000 en su navegador.
 
 ## Rebuild the project
 
-To incrementally build the project:
+Para compilar incrementalmente el proyecto:
 
 ```sh
 npm run build
 ```
 
-To force a full build by cleaning up cached artifacts:
+Para forzar una compilación completa limpiando los artefactos almacenados en caché::
 
 ```sh
 npm run rebuild
 ```
 
-## Fix code style and formatting issues
+## Solucionar problemas de formato y estilos de codigo
 
 ```sh
 npm run lint
 ```
 
-To automatically fix such issues:
+Para solucionar automaticamente dichos problemas:
 
 ```sh
 npm run lint:fix
 ```
 
-## Other useful commands
+## Otros comandos útiles
 
-- `npm run migrate`: Migrate database schemas for models
-- `npm run openapi-spec`: Generate OpenAPI spec into a file
-- `npm run docker:build`: Build a Docker image for this application
-- `npm run docker:run`: Run this application inside a Docker container
+- `npm run migrate`: Migrar esquemas de los modelos de la base de datos
+- `npm run openapi-spec`: Genera una OpenAPI especifica en un archivo
+- `npm run docker:build`: Crea una imagen _Docker_ para la aplicación
+- `npm run docker:run`: Ejecuta esta aplicación dentro de un contenedor Docker 
 
-## Tests
+## Pruebas
 
 ```sh
 npm test
 ```
 
-## What's next
+## Qué sigue?
 
-Please check out [LoopBack 4 documentation](https://loopback.io/doc/en/lb4/) to
-understand how you can continue to add features to this application.
+Porfavor revise la [documentación de LoopBack 4](https://loopback.io/doc/en/lb4/) para entender como puede seguir agregando funcionalidades a esta aplicación
 
 [![LoopBack](https://github.com/loopbackio/loopback-next/raw/master/docs/site/imgs/branding/Powered-by-LoopBack-Badge-(blue)-@2x.png)](http://loopback.io/)
