@@ -33,6 +33,11 @@ export class Cliente extends Entity {
   })
   TelefonoCelular: string;
 
+  @property({
+    type: 'string',
+    required: true,
+  })
+  Clave: string;
 
 
   constructor(data?: Partial<Cliente>) {
