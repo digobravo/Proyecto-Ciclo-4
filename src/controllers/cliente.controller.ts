@@ -37,12 +37,12 @@ export class ClienteController {
         'application/json': {
           schema: getModelSchemaRef(Cliente, {
             title: 'NewCliente',
-            exclude: ['id'],
+            exclude: ['Id'],
           }),
         },
       },
     })
-    cliente: Omit<Cliente, 'id'>,
+    cliente: Omit<Cliente, 'Id'>,
   ): Promise<Cliente> {
     return this.clienteRepository.create(cliente);
   }

@@ -67,7 +67,7 @@ npm run lint:fix
 - `npm run migrate`: Migrar esquemas de los modelos de la base de datos
 - `npm run openapi-spec`: Genera una OpenAPI especifica en un archivo
 - `npm run docker:build`: Crea una imagen _Docker_ para la aplicación
-- `npm run docker:run`: Ejecuta esta aplicación dentro de un contenedor Docker 
+- `npm run docker:run`: Ejecuta esta aplicación dentro de un contenedor Docker
 
 ## Pruebas
 

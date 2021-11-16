@@ -1,5 +1,5 @@
 import {inject, Getter} from '@loopback/core';
-import {DefaultCrudRepository, repository, HasOneRepositoryFactory} from '@loopback/repository';
+import {DefaultCrudRepository, repository, BelongsToAccessor} from '@loopback/repository';
 import {MongoDbDataSource} from '../datasources';
 import {Solicitud, SolicitudRelations, Cliente, Inmueble} from '../models';
 import {ClienteRepository} from './cliente.repository';
@@ -11,17 +11,17 @@ export class SolicitudRepository extends DefaultCrudRepository<
   SolicitudRelations
 > {
 
-  public readonly cliente: HasOneRepositoryFactory<Cliente, typeof Solicitud.prototype.Id>;
+  public readonly cliente: BelongsToAccessor<Cliente, typeof Solicitud.prototype.Id>;
 
-  public readonly inmueble: HasOneRepositoryFactory<Inmueble, typeof Solicitud.prototype.Id>;
+  public readonly inmueble: BelongsToAccessor<Inmueble, typeof Solicitud.prototype.Id>;
 
   constructor(
-    @inject('datasources.MongoDb') dataSource: MongoDbDataSource, @repository.getter('ClienteRepository') protected clienteRepositoryGetter: Getter<ClienteRepository>, @repository.getter('InmuebleRepository') protected inmuebleRepositoryGetter: Getter<InmuebleRepository>,
+    @inject('datasources.MongoDB') dataSource: MongoDbDataSource, @repository.getter('ClienteRepository') protected clienteRepositoryGetter: Getter<ClienteRepository>, @repository.getter('InmuebleRepository') protected inmuebleRepositoryGetter: Getter<InmuebleRepository>,
   ) {
     super(Solicitud, dataSource);
-    this.inmueble = this.createHasOneRepositoryFactoryFor('inmueble', inmuebleRepositoryGetter);
+    this.inmueble = this.createBelongsToAccessorFor('inmueble', inmuebleRepositoryGetter,);
     this.registerInclusionResolver('inmueble', this.inmueble.inclusionResolver);
-    this.cliente = this.createHasOneRepositoryFactoryFor('cliente', clienteRepositoryGetter);
+    this.cliente = this.createBelongsToAccessorFor('cliente', clienteRepositoryGetter,);
     this.registerInclusionResolver('cliente', this.cliente.inclusionResolver);
   }
 }

@@ -37,12 +37,12 @@ export class MunicipioController {
         'application/json': {
           schema: getModelSchemaRef(Municipio, {
             title: 'NewMunicipio',
-            exclude: ['id'],
+            exclude: ['Id'],
           }),
         },
       },
     })
-    municipio: Omit<Municipio, 'id'>,
+    municipio: Omit<Municipio, 'Id'>,
   ): Promise<Municipio> {
     return this.municipioRepository.create(municipio);
   }

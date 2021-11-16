@@ -1,5 +1,5 @@
 import {inject, Getter} from '@loopback/core';
-import {DefaultCrudRepository, repository, BelongsToAccessor} from '@loopback/repository';
+import {DefaultCrudRepository, repository, HasManyRepositoryFactory} from '@loopback/repository';
 import {MongoDbDataSource} from '../datasources';
 import {Empleado, EmpleadoRelations, Inmueble} from '../models';
 import {InmuebleRepository} from './inmueble.repository';
@@ -10,13 +10,13 @@ export class EmpleadoRepository extends DefaultCrudRepository<
   EmpleadoRelations
 > {
 
-  public readonly inmueble: BelongsToAccessor<Inmueble, typeof Empleado.prototype.Id>;
+  public readonly inmuebles: HasManyRepositoryFactory<Inmueble, typeof Empleado.prototype.Id>;
 
   constructor(
-    @inject('datasources.MongoDb') dataSource: MongoDbDataSource, @repository.getter('InmuebleRepository') protected inmuebleRepositoryGetter: Getter<InmuebleRepository>,
+    @inject('datasources.MongoDB') dataSource: MongoDbDataSource, @repository.getter('InmuebleRepository') protected inmuebleRepositoryGetter: Getter<InmuebleRepository>,
   ) {
     super(Empleado, dataSource);
-    this.inmueble = this.createBelongsToAccessorFor('inmueble', inmuebleRepositoryGetter,);
-    this.registerInclusionResolver('inmueble', this.inmueble.inclusionResolver);
+    this.inmuebles = this.createHasManyRepositoryFactoryFor('inmuebles', inmuebleRepositoryGetter,);
+    this.registerInclusionResolver('inmuebles', this.inmuebles.inclusionResolver);
   }
 }

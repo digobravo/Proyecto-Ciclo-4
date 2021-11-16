@@ -1,5 +1,6 @@
-import {Entity, hasMany, model, property} from '@loopback/repository';
+import {Entity, model, property, hasMany} from '@loopback/repository';
 import {Municipio} from './municipio.model';
+import {Inmueble} from './inmueble.model';
 
 @model()
 export class Departamento extends Entity {
@@ -19,7 +20,8 @@ export class Departamento extends Entity {
   @hasMany(() => Municipio)
   municipios: Municipio[];
 
-
+  @hasMany(() => Inmueble)
+  inmuebles: Inmueble[];
 
   constructor(data?: Partial<Departamento>) {
     super(data);

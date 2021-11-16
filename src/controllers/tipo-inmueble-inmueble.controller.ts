@@ -1,10 +1,19 @@
 import {
+  Count,
+  CountSchema,
+  Filter,
   repository,
+  Where,
 } from '@loopback/repository';
 import {
-  param,
+  del,
   get,
   getModelSchemaRef,
+  getWhereSchemaFor,
+  param,
+  patch,
+  post,
+  requestBody,
 } from '@loopback/rest';
 import {
   TipoInmueble,
@@ -14,14 +23,13 @@ import {TipoInmuebleRepository} from '../repositories';
 
 export class TipoInmuebleInmuebleController {
   constructor(
-    @repository(TipoInmuebleRepository)
-    public tipoInmuebleRepository: TipoInmuebleRepository,
+    @repository(TipoInmuebleRepository) protected tipoInmuebleRepository: TipoInmuebleRepository,
   ) { }
 
-  @get('/tipo-inmuebles/{id}/inmueble', {
+  @get('/tipo-inmuebles/{id}/inmuebles', {
     responses: {
       '200': {
-        description: 'Inmueble belonging to TipoInmueble',
+        description: 'Array of TipoInmueble has many Inmueble',
         content: {
           'application/json': {
             schema: {type: 'array', items: getModelSchemaRef(Inmueble)},
@@ -30,9 +38,73 @@ export class TipoInmuebleInmuebleController {
       },
     },
   })
-  async getInmueble(
+  async find(
+    @param.path.string('id') id: string,
+    @param.query.object('filter') filter?: Filter<Inmueble>,
+  ): Promise<Inmueble[]> {
+    return this.tipoInmuebleRepository.inmuebles(id).find(filter);
+  }
+
+  @post('/tipo-inmuebles/{id}/inmuebles', {
+    responses: {
+      '200': {
+        description: 'TipoInmueble model instance',
+        content: {'application/json': {schema: getModelSchemaRef(Inmueble)}},
+      },
+    },
+  })
+  async create(
     @param.path.string('id') id: typeof TipoInmueble.prototype.Id,
+    @requestBody({
+      content: {
+        'application/json': {
+          schema: getModelSchemaRef(Inmueble, {
+            title: 'NewInmuebleInTipoInmueble',
+            exclude: ['Id'],
+            optional: ['tipoInmuebleId']
+          }),
+        },
+      },
+    }) inmueble: Omit<Inmueble, 'Id'>,
   ): Promise<Inmueble> {
-    return this.tipoInmuebleRepository.inmueble(id);
+    return this.tipoInmuebleRepository.inmuebles(id).create(inmueble);
+  }
+
+  @patch('/tipo-inmuebles/{id}/inmuebles', {
+    responses: {
+      '200': {
+        description: 'TipoInmueble.Inmueble PATCH success count',
+        content: {'application/json': {schema: CountSchema}},
+      },
+    },
+  })
+  async patch(
+    @param.path.string('id') id: string,
+    @requestBody({
+      content: {
+        'application/json': {
+          schema: getModelSchemaRef(Inmueble, {partial: true}),
+        },
+      },
+    })
+    inmueble: Partial<Inmueble>,
+    @param.query.object('where', getWhereSchemaFor(Inmueble)) where?: Where<Inmueble>,
+  ): Promise<Count> {
+    return this.tipoInmuebleRepository.inmuebles(id).patch(inmueble, where);
+  }
+
+  @del('/tipo-inmuebles/{id}/inmuebles', {
+    responses: {
+      '200': {
+        description: 'TipoInmueble.Inmueble DELETE success count',
+        content: {'application/json': {schema: CountSchema}},
+      },
+    },
+  })
+  async delete(
+    @param.path.string('id') id: string,
+    @param.query.object('where', getWhereSchemaFor(Inmueble)) where?: Where<Inmueble>,
+  ): Promise<Count> {
+    return this.tipoInmuebleRepository.inmuebles(id).delete(where);
   }
 }

@@ -37,12 +37,12 @@ export class SolicitudController {
         'application/json': {
           schema: getModelSchemaRef(Solicitud, {
             title: 'NewSolicitud',
-            exclude: ['id'],
+            exclude: ['Id'],
           }),
         },
       },
     })
-    solicitud: Omit<Solicitud, 'id'>,
+    solicitud: Omit<Solicitud, 'Id'>,
   ): Promise<Solicitud> {
     return this.solicitudRepository.create(solicitud);
   }

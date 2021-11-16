@@ -9,7 +9,7 @@ export class CodeudorRepository extends DefaultCrudRepository<
   CodeudorRelations
 > {
   constructor(
-    @inject('datasources.MongoDb') dataSource: MongoDbDataSource,
+    @inject('datasources.MongoDB') dataSource: MongoDbDataSource,
   ) {
     super(Codeudor, dataSource);
   }

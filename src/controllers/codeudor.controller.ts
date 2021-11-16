@@ -37,12 +37,12 @@ export class CodeudorController {
         'application/json': {
           schema: getModelSchemaRef(Codeudor, {
             title: 'NewCodeudor',
-            exclude: ['id'],
+            exclude: ['Id'],
           }),
         },
       },
     })
-    codeudor: Omit<Codeudor, 'id'>,
+    codeudor: Omit<Codeudor, 'Id'>,
   ): Promise<Codeudor> {
     return this.codeudorRepository.create(codeudor);
   }

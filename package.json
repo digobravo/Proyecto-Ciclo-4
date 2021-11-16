@@ -1,7 +1,7 @@
 {
   "name": "proinmobiliariastackers",
   "version": "0.0.1",
-  "description": "Proyecto del ciclo 4 MisionTic2022",
+  "description": "ProOInmobiliaria",
   "keywords": [
     "loopback-application",
     "loopback"
@@ -40,7 +40,7 @@
     "type": "git",
     "url": ""
   },
-  "author": "Daprietoa <davidfernandoprieto@gmail.com>",
+  "author": "daprietoa <davidfernandoprieto@gmail.com>",
   "license": "",
   "files": [
     "README.md",

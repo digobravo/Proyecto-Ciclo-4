@@ -37,12 +37,12 @@ export class TipoInmuebleController {
         'application/json': {
           schema: getModelSchemaRef(TipoInmueble, {
             title: 'NewTipoInmueble',
-            exclude: ['id'],
+            exclude: ['Id'],
           }),
         },
       },
     })
-    tipoInmueble: Omit<TipoInmueble, 'id'>,
+    tipoInmueble: Omit<TipoInmueble, 'Id'>,
   ): Promise<TipoInmueble> {
     return this.tipoInmuebleRepository.create(tipoInmueble);
   }
