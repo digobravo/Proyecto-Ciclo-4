@@ -4,18 +4,12 @@ import {
   Filter,
   FilterExcludingWhere,
   repository,
-  Where,
+  Where
 } from '@loopback/repository';
 import {
-  post,
-  param,
-  get,
-  getModelSchemaRef,
-  patch,
-  put,
-  del,
-  requestBody,
-  response,
+  del, get,
+  getModelSchemaRef, param, patch, post, put, requestBody,
+  response
 } from '@loopback/rest';
 import {Inmueble} from '../models';
 import {InmuebleRepository} from '../repositories';
@@ -23,8 +17,9 @@ import {InmuebleRepository} from '../repositories';
 export class InmuebleController {
   constructor(
     @repository(InmuebleRepository)
-    public inmuebleRepository : InmuebleRepository,
-  ) {}
+    public inmuebleRepository: InmuebleRepository,
+  ) { }
+
 
   @post('/inmuebles')
   @response(200, {

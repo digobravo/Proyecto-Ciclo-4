@@ -6,3 +6,4 @@ export * from './codeudor.model';
 export * from './municipio.model';
 export * from './inmueble.model';
 export * from './solicitud.model';
+export * from './credenciales.model';

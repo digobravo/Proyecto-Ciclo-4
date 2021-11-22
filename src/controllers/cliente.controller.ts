@@ -1,30 +1,59 @@
+import {service} from '@loopback/core';
 import {
   Count,
   CountSchema,
   Filter,
   FilterExcludingWhere,
   repository,
-  Where,
+  Where
 } from '@loopback/repository';
 import {
-  post,
-  param,
-  get,
-  getModelSchemaRef,
-  patch,
-  put,
-  del,
-  requestBody,
-  response,
+  del, get,
+  getModelSchemaRef, HttpErrors, param, patch, post, put, requestBody,
+  response
 } from '@loopback/rest';
-import {Cliente} from '../models';
+import {Llaves} from '../config/llaves';
+import {Cliente, Credenciales} from '../models';
 import {ClienteRepository} from '../repositories';
+import {AutenticacionService} from '../services';
+
+const fetch = require('node-fetch');
 
 export class ClienteController {
   constructor(
     @repository(ClienteRepository)
-    public clienteRepository : ClienteRepository,
-  ) {}
+    public clienteRepository: ClienteRepository,
+    @service(AutenticacionService)
+    public servicioAutenticacion: AutenticacionService
+  ) { }
+
+  @post('/identificarCliente', {
+    responses: {
+      '200': {
+        description: 'Identificación de usuarios'
+      }
+    }
+  })
+
+  async identificarCliente(
+    @requestBody() credenciales: Credenciales
+  ) {
+    let c = await this.servicioAutenticacion.identificarCliente(credenciales.usuario, credenciales.clave);
+    if (c) {
+      let token = this.servicioAutenticacion.generarTokenJWT(c);
+      return {
+        datos: {
+          nombre: c.Nombres,
+          email: c.Email,
+          id: c.Id
+        },
+        tk: token
+      }
+    }
+    else {
+      throw new HttpErrors[401]("Datos incorrectos");
+    }
+  }
 
   @post('/clientes')
   @response(200, {
@@ -44,7 +73,22 @@ export class ClienteController {
     })
     cliente: Omit<Cliente, 'Id'>,
   ): Promise<Cliente> {
-    return this.clienteRepository.create(cliente);
+
+    let clave = this.servicioAutenticacion.generarClave();
+    let claveCifrada = this.servicioAutenticacion.cifrarClave(clave);
+    cliente.Clave = claveCifrada;
+    let p = await this.clienteRepository.create(cliente);
+
+    //notificación a usuario para
+
+    let destino = cliente.Email;
+    let asunto = 'Registro en la plataforma inmobiliaria'
+    let mensaje = `Hola ${cliente.Nombres}, su nombre de usuario es su correo; ${cliente.Email} y su contraseña es: ${clave}`;
+    fetch(`${Llaves.urlServicioNotificacion}/email?destino=${destino}&asunto=${asunto}&mensaje=${mensaje}`)
+      .then((data: any) => {
+        console.log(data);
+      })
+    return p;
   }
 
   @get('/clientes/count')
