@@ -10,7 +10,7 @@ Integrantes del Equipo:
 
 # Proyecto Inmobiliaria
 
-Esta aplicación ha sido creada usando [LoopBack 4 CLI](https://loopback.io/doc/en/lb4/Command-line-interface.html) con la siguente
+Esta aplicación ha sido creada usando [LoopBack 4 CLI](https://loopback.io/doc/en/lb4/Command-line-interface.html) usando la siguente
 [maquetación inicial de proyecto](https://loopback.io/doc/en/lb4/Loopback-application-layout.html).
 
 ## Instalar dependencias
@@ -22,25 +22,25 @@ Siempre que se modifiquen esas dependencias en el archivo `package.json`, ejecut
 npm install
 ```
 
-Para instalar solamente las dependancias resueltas en `package-lock.json`:
+Para instalar solamente las dependencias resueltas en `package-lock.json`:
 
 ```sh
 npm ci
 ```
 
-## ejecutar la aplicación
+## Ejecutar la aplicación
 
 ```sh
 npm start
 ```
 
-Puede ejecutar tambien `node .` para omitir el paso de compilar.
+Tambien puede ejecutar `node .` para omitir la compilación.
 
 Abra http://127.0.0.1:3000 en su navegador.
 
-## Rebuild the project
+## Recompilar el proyecto
 
-Para compilar incrementalmente el proyecto:
+Para realizar una compilación incremental del proyecto ejecute:
 
 ```sh
 npm run build
@@ -66,8 +66,8 @@ npm run lint:fix
 
 ## Otros comandos útiles
 
-- `npm run migrate`: Migrar esquemas de los modelos de la base de datos
-- `npm run openapi-spec`: Genera una OpenAPI especifica en un archivo
+- `npm run migrate`: Migra esquemas de los modelos de la base de datos
+- `npm run openapi-spec`: Genera un _OpenAPI_ especifico en un archivo
 - `npm run docker:build`: Crea una imagen _Docker_ para la aplicación
 - `npm run docker:run`: Ejecuta esta aplicación dentro de un contenedor Docker
 
