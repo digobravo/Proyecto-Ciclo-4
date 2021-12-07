@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EliminarPersonaComponent } from './eliminar-persona.component';
+import { EditarClienteComponent } from './editar-cliente.component';
 
-describe('EliminarPersonaComponent', () => {
-  let component: EliminarPersonaComponent;
-  let fixture: ComponentFixture<EliminarPersonaComponent>;
+describe('EditarClienteComponent', () => {
+  let component: EditarClienteComponent;
+  let fixture: ComponentFixture<EditarClienteComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EliminarPersonaComponent ]
+      declarations: [ EditarClienteComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EliminarPersonaComponent);
+    fixture = TestBed.createComponent(EditarClienteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

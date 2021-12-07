@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SeguridadModule } from './modulos/seguridad/seguridad.module';
 import { CreditosComponent } from './plantilla/creditos/creditos.component';
 import { EmpresaComponent } from './plantilla/empresa/empresa.component';
 import { ErrorComponent } from './plantilla/error/error.component';
@@ -12,30 +11,18 @@ const routes: Routes = [
     component: InicioComponent,
   },
   {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: '/inicio',
+    path:'',
+    pathMatch:'full',
+    redirectTo:'inicio',
   },
+
   {
     path: 'seguridad',
-    loadChildren: () =>
-      import('./modulos/seguridad/seguridad.module').then(
-        (x) => x.SeguridadModule
-      ),
+    loadChildren: () => import('./modulos/seguridad/seguridad.module').then(x => x.SeguridadModule)
   },
   {
     path: 'administracion',
-    loadChildren: () =>
-      import('./modulos/administracion/administracion.module').then(
-        (x) => x.AdministracionModule
-      ),
-  },
-  {
-    path: 'inmuebles',
-    loadChildren: () =>
-      import('./modulos/inmuebles/inmuebles.module').then(
-        (x) => x.InmueblesModule
-      ),
+    loadChildren: () => import('./modulos/administracion/administracion.module').then(x => x.AdministracionModule)
   },
   {
     path: 'empresa',
@@ -49,10 +36,12 @@ const routes: Routes = [
     path: '**',
     component: ErrorComponent,
   },
+
+  
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }

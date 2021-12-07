@@ -7,9 +7,8 @@ import { BarraNavegacionComponent } from './plantilla/barra-navegacion/barra-nav
 import { PiePaginaComponent } from './plantilla/pie-pagina/pie-pagina.component';
 import { InicioComponent } from './plantilla/inicio/inicio.component';
 import { ErrorComponent } from './plantilla/error/error.component';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { EmpresaComponent } from './plantilla/empresa/empresa.component';
-import { CreditosComponent } from './plantilla/creditos/creditos.component';
-import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -18,14 +17,12 @@ import { HttpClientModule } from '@angular/common/http'
     PiePaginaComponent,
     InicioComponent,
     ErrorComponent,
-    EmpresaComponent,
-    CreditosComponent
+    EmpresaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-
   ],
   providers: [],
   bootstrap: [AppComponent]

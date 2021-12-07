@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ProInmobiliariaStackers": {
+    "FrontendInmobiliaria": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,22 +17,20 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ProInmobiliariaStackers",
+            "outputPath": "dist/FrontendInmobiliaria",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              "src/assets/favicon.png",
+              "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [
-              "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/@popperjs/core/dist/umd/popper.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
           },
@@ -73,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ProInmobiliariaStackers:build:production"
+              "browserTarget": "FrontendInmobiliaria:build:production"
             },
             "development": {
-              "browserTarget": "ProInmobiliariaStackers:build:development"
+              "browserTarget": "FrontendInmobiliaria:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -84,7 +82,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ProInmobiliariaStackers:build"
+            "browserTarget": "FrontendInmobiliaria:build"
           }
         },
         "test": {
@@ -95,7 +93,7 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "assets": [
-              "src/assets/favicon.png",
+              "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
@@ -107,5 +105,5 @@
       }
     }
   },
-  "defaultProject": "ProInmobiliariaStackers"
+  "defaultProject": "FrontendInmobiliaria"
 }
