@@ -15,4 +15,4 @@ Este proyecto ha sido creado como proyecto del modulo de programación web del c
 * Angular CLI: https://angular.io/
 
 # Ejecutar la aplicacion
-Para ejecutar el proyecto adecuadamente se deben ejecutar los comandos `npm start` en la carpeta _server_ y ``ng s -o` en la carpeta _client_. Para mayor profundidad respecto a las distintas partes de la aplicación, revise la documentación correspondiente en ambas partes del proyecto.
+Para ejecutar el proyecto adecuadamente se deben ejecutar los comandos `npm start` en la carpeta _server_ y `ng s -o` en la carpeta _client_. Para mayor profundidad respecto a las distintas partes de la aplicación, revise la documentación correspondiente en ambas partes del proyecto.
