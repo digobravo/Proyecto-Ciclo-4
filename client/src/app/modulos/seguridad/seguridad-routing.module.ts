@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CerrarSesionComponent } from './cerrar-sesion/cerrar-sesion.component';
 import { IdentificacionComponent } from './identificacion/identificacion.component';
+import { RegistroComponent } from './registro/registro.component';
 
 const routes: Routes = [
 
@@ -11,6 +12,9 @@ const routes: Routes = [
   },{
     path: 'cerrarsesion',
     component:CerrarSesionComponent
+  },{
+    path: 'registro',
+    component:RegistroComponent
   }
 
 ];

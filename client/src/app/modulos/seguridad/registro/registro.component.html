@@ -55,8 +55,23 @@
           <img src="./assets/Inmobiliaria.png" class="img-fluid" />
         </div>
         <div class="px-lg-5 py-lg-4 p-4 w-100 align-self-center">
-          <h1 class="font-weight-bold mb-4">Bienvenido!</h1>
-          <form [formGroup]="fgvalidador" (ngSubmit)="identificarUsuario()">
+          <h1 class="font-weight-bold mb-4">Unete a Hogar Colombia</h1>
+          <form >
+            <div class="mb-4">
+              <label  class="form-label font-weight-bold">Nombre</label>
+              <input formControlName="usuario" type="text" class="form-control bg-dark-x border-1" placeholder="Ingrese su nombre completo"
+                 />
+            </div>
+            <div class="mb-4">
+              <label  class="form-label font-weight-bold">Direccion</label>
+              <input formControlName="usuario" type="text" class="form-control bg-dark-x border-1" placeholder="Ingrese su direccion"
+                 />
+            </div>
+            <div class="mb-4">
+              <label  class="form-label font-weight-bold">Telefono</label>
+              <input formControlName="usuario" type="text" class="form-control bg-dark-x border-1" placeholder="Ingrese su numero celular"
+                 />
+            </div>
             <div class="mb-4">
               <label for="exampleInputEmail1" class="form-label font-weight-bold">Email</label>
               <input formControlName="usuario" type="email" class="form-control bg-dark-x border-1" placeholder="Ingrese su email"
@@ -66,20 +81,23 @@
               <label for="exampleInputPassword1" class="form-label font-weight-bold">Contrasena</label>
               <input formControlName="password" type="password" class="form-control bg-dark-x border-1 mb-2" placeholder="Ingrese su contrasena"
                 id="exampleInputPassword1" />
-              <a routerLink="/seguridad/cambio-clave" id="emailHelp" class="form-text text-muted text-decoration-none">
-                Olvidaste tu contrasena?
-              </a>
+              
             </div>
-            <button [disabled]="!fgvalidador.valid" type="submit" class="btn btn-primary w-100">
-              iniciar sesion
+            <div class="mb-4">
+              <label for="exampleInputPassword1" class="form-label font-weight-bold">Confirma tu contrasena</label>
+              <input formControlName="password" type="password" class="form-control bg-dark-x border-1 mb-2" placeholder="Digite nuevamente su contrasena"
+                id="exampleInputPassword1" />
+              
+            </div>
+            <button  type="submit" class="btn btn-primary w-100">
+              Registrarse
             </button>
           </form>
         </div>
         <div class="text-center px-lg-5 pt-lg-3 pb-lg-4 p-4 w-100">
-          <p class="d-inline-block mb-0">Todavia no tienes una cuneta?</p>
-          <a href="/seguridad/registro">Crear una</a>
+          <p class="d-inline-block mb-0">Ya tienes una cuneta?</p>
+          <a href="/seguridad/identificar">Inicia sesion</a>
         </div>
       </div>
     </div>
   </section>
-  

@@ -1,0 +1,19 @@
+.btn-editar{
+    background-color: green;
+    color: white;
+    margin: 10px;
+    
+
+}
+.btn-borrar{
+    background-color: rgb(236, 38, 38);
+    color: white;
+    
+    
+}
+.btn-success{
+
+color: black;
+background: none;
+border: none;
+}

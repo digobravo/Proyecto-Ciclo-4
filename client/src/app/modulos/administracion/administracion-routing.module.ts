@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { IdentificacionComponent } from '../seguridad/identificacion/identificacion.component';
 import { CrearClienteComponent } from './clientes/crear-cliente/crear-cliente.component';
 import { EditarClienteComponent } from './clientes/editar-cliente/editar-cliente.component';
+import { CrudInmuebleComponent } from './inmuebles/crud-inmueble/crud-inmueble.component';
+
 
 const routes: Routes = [
 
@@ -17,6 +19,10 @@ const routes: Routes = [
   {
     path:'identificar',
     component: IdentificacionComponent,
+  },
+  {
+    path:'crud-inmueble',
+    component: CrudInmuebleComponent,
   }
 
 ];

@@ -1,0 +1,216 @@
+<div class="text-center container">
+  <div class="row m-0">
+      <!--Tarjetas-->
+    <div class="col m-0">
+      <div class="card m-4 auto shadow" style="width: 18rem">
+        <img
+          src="https://englishlive.ef.com/es-mx/blog/wp-content/uploads/sites/8/2019/03/partes-de-la-casa-en-ingles.jpg"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title">PH en el poblado</h5>
+          <p class="card-text">Hermoso PH en el poblado</p>
+          <a  class="btn btn-editar" (click)="modal.open(editarmodal)">Editar</a>
+
+          <a  class="btn btn-borrar" (click)="modal.open(borrarmodal)">Borrar</a>
+        </div>
+      </div>
+    </div>
+
+    <!--Tarjetas 2-->
+
+    <div class="col m-0">
+        <div class="card m-4 auto shadow" style="width: 18rem">
+          <img
+            src="https://englishlive.ef.com/es-mx/blog/wp-content/uploads/sites/8/2019/03/partes-de-la-casa-en-ingles.jpg"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">PH en el poblado</h5>
+            <p class="card-text">Hermoso PH en el poblado</p>
+            <a  class="btn btn-editar" (click)="modal.open(editarmodal)">Editar</a>
+  
+            <a  class="btn btn-borrar" (click)="modal.open(borrarmodal)">Borrar</a>
+          </div>
+        </div>
+      </div>
+
+      <!--Tarjetas 3-->
+
+      <div class="col m-0">
+        <div class="card m-4 auto shadow" style="width: 18rem">
+          <img
+            src="https://englishlive.ef.com/es-mx/blog/wp-content/uploads/sites/8/2019/03/partes-de-la-casa-en-ingles.jpg"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">PH en el poblado</h5>
+            <p class="card-text">Hermoso PH en el poblado</p>
+            <a  class="btn btn-editar" (click)="modal.open(editarmodal)">Editar</a>
+  
+            <a  class="btn btn-borrar" (click)="modal.open(borrarmodal)">Borrar</a>
+          </div>
+        </div>
+      </div>
+      <!--Boton agregar-->
+      <div class="col m-0">
+        <div class="card m-4 auto shadow" style="width: 18rem">
+          <img
+            src="https://englishlive.ef.com/es-mx/blog/wp-content/uploads/sites/8/2019/03/partes-de-la-casa-en-ingles.jpg"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            
+            <a  class="btn btn-editar" (click)="modal.open(agregarmodal)">Agregar nuevo inmueble</a>
+  
+            
+          </div>
+        </div>
+      </div>
+
+
+</div>
+<!--Modal para agregar-->
+
+<ng-template #agregarmodal let-modal>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Ageragar</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          (click)="modal.close()"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Direccion</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Precio</label>
+            <input type="number" class="form-control" id="recipient-name">
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              En venta
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <label class="form-check-label" for="flexRadioDefault2">
+              En arriendo
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <label class="form-check-label" for="flexRadioDefault2">
+              Ambos
+            </label>
+          </div>
+          <label for="message-text" class="col-form-label">Detalles</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Fotos del inmueble</label>
+                <input type="file" name="image">+
+          </div>
+          
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="modal.close()">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<!--Modal para editar-->
+
+<ng-template #editarmodal let-modal>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Editar</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+            (click)="modal.close()"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Direccion</label>
+              <input type="text" class="form-control" id="recipient-name">
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Precio</label>
+              <input type="number" class="form-control" id="recipient-name">
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+              <label class="form-check-label" for="flexRadioDefault1">
+                En venta
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+              <label class="form-check-label" for="flexRadioDefault2">
+                En arriendo
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+              <label class="form-check-label" for="flexRadioDefault2">
+                Ambos
+              </label>
+            </div>
+            <label for="message-text" class="col-form-label">Detalles</label>
+              <textarea class="form-control" id="message-text"></textarea>
+            <div class="mb-3">
+                  <label for="recipient-name" class="col-form-label">Fotos del inmueble</label>
+                  <input type="file" name="image">+
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="modal.close()">
+            Close
+          </button>
+          <button type="button" class="btn btn-primary">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+  <!--Modal para confirmar eliminar-->
+
+  <ng-template #borrarmodal let-modal>
+    
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="modal.close()"></button>
+            </div>
+            <div class="modal-body">
+              Seguro deseas eliminar este inmueble?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="modal.close()">Cancelar</button>
+              <button type="button" class="btn btn-primary" style="background-color: red;">Eliminar</button>
+            </div>
+          </div>
+        </div>
+    
+  </ng-template>

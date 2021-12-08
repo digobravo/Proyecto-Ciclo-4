@@ -10,6 +10,7 @@ import { CrearInmuebleComponent } from './inmuebles/crear-inmueble/crear-inmuebl
 import { EditarInmuebleComponent } from './inmuebles/editar-inmueble/editar-inmueble.component';
 import { BuscarInmuebleComponent } from './inmuebles/buscar-inmueble/buscar-inmueble.component';
 import { EliminarInmuebleComponent } from './inmuebles/eliminar-inmueble/eliminar-inmueble.component';
+import { CrudInmuebleComponent } from './inmuebles/crud-inmueble/crud-inmueble.component';
 
 
 @NgModule({
@@ -21,11 +22,13 @@ import { EliminarInmuebleComponent } from './inmuebles/eliminar-inmueble/elimina
     CrearInmuebleComponent,
     EditarInmuebleComponent,
     BuscarInmuebleComponent,
-    EliminarInmuebleComponent
+    EliminarInmuebleComponent,
+    CrudInmuebleComponent
   ],
   imports: [
     CommonModule,
-    AdministracionRoutingModule
+    AdministracionRoutingModule,
+    
   ]
 })
 export class AdministracionModule { }
